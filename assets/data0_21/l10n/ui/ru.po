@@ -27,6 +27,10 @@ msgid "Options"
 msgstr "Настройки"
 
 #. Top button
+msgid "Credits"
+msgstr "Титры"
+
+#. Top button
 msgid "Quit"
 msgstr "Выход"
 
@@ -34,6 +38,9 @@ msgid "Please join us on Discord (link below) to participate in pickup games, ga
 "discussion, and more!"
 msgstr "Вы можете присоединиться к нам в Discord (ссылка ниже), чтобы участвовать в "
 "пикап-матчах, обсуждении игры и многом другом!"
+
+msgid "Chat with us on Discord!"
+msgstr "Пообщайтесь в нашем Discord! (только английский)"
 
 msgid "Legal Disclaimer: Warfork is not affiliated with Warsow, Warsow Team, or "
 "Chasseur de Bots."
@@ -731,7 +738,7 @@ msgid "Greyscale lighting"
 msgstr "Полутоновое освещение"
 
 msgid "Use solid colors for world"
-msgstr "Закрашивать стены и пол"
+msgstr "Монотонные текстуры стен и пола"
 
 msgid "Sound module"
 msgstr "Звуковой модуль"
@@ -1314,3 +1321,60 @@ msgstr "Производится поиск серверов..."
 
 msgid "Browse servers manually"
 msgstr "Просмотр списка серверов"
+
+msgid "Show damage numbers"
+msgstr "Показывать значения нанесённого урона"
+
+msgid "Damage numbers color"
+msgstr "Цвет значений нанесённого урона"
+
+msgid "Damage numbers size"
+msgstr "Размер значений нанесённого урона"
+
+msgid "Blue"
+msgstr "Синий"
+
+msgid "Cyan"
+msgstr "Бирюзовый"
+
+msgid "Dark Grey"
+msgstr "Тёмно-серый"
+
+msgid "Green"
+msgstr "Зелёный"
+
+msgid "Light Grey"
+msgstr "Светло-серый"
+
+msgid "Magenta"
+msgstr "Розовый"
+
+msgid "Medium Grey"
+msgstr "Серый"
+
+msgid "Orange"
+msgstr "Оранжевый"
+
+msgid "White"
+msgstr "Белый"
+
+msgid "Yellow"
+msgstr "Жёлтый"
+
+msgid "Red"
+msgstr "Красный"
+
+msgid "Light Blue"
+msgstr "Светло-синий"
+
+msgid "Tiny"
+msgstr "Очень маленький"
+
+msgid "Small"
+msgstr "Маленький"
+
+msgid "Medium"
+msgstr "Средний"
+
+msgid "Large"
+msgstr "Большой"

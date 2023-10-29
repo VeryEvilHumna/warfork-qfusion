@@ -87,6 +87,7 @@
 				}
 				rml += '<div class="title">Name</div><input cvar="name" type="text" value="Player"/><br/>';
 				rml += '<div class="title">Clan</div><input cvar="clan" type="text" value=""/><br/>';
+							
 				if( softKeyboard ) {
 					rml += '<br/><hr class="nicehr"/>'; // no br in the end intentionally
 				}
@@ -257,6 +258,63 @@
 
 						<div id="nameclan"/>
 						
+						<br/><br/>
+						
+						<div class="table">
+						   <div class="caption">Color Codes</div>
+						   <p>Color codes can be used in nick, clan and chat!</p>
+						   <br/>
+						   <div class="row">
+							  <div class="cell header">Code</div>
+							  <div class="cell header">Color</div>
+							  <div class="cell"> </div>
+							  <div class="cell"> </div>
+							  <div class="cell header">Code</div>
+							  <div class="cell header">Color</div>
+							</div>
+						   <div class="row">
+							  <div class="cell">^0</div>
+							  <div class="cell"><span style="color:black; background-color: white;">Black</span></div>
+							  <div class="cell"> </div>
+							  <div class="cell"> </div>
+							  <div class="cell">^5</div>
+							  <div class="cell"><span style="color:#00FEFF;">Cyan</span></div>
+						   </div>
+						   <div class="row">
+							  <div class="cell">^1</div>
+							  <div class="cell"><span style="color:red;">Red</span></div>
+							  <div class="cell"> </div>
+							  <div class="cell"> </div>
+							  <div class="cell">^6</div>
+							  <div class="cell"><span style="color:#FF03FF;">Magenta</span></div>
+						   </div>
+						   <div class="row">
+							  <div class="cell">^2</div>
+							  <div class="cell"><span style="color:lime;">Green</span></div>
+							  <div class="cell"> </div>
+							  <div class="cell"> </div>
+							  <div class="cell">^7</div>
+							  <div class="cell"><span style="color:white;">White</span></div>
+						   </div>
+						   <div class="row">
+							  <div class="cell">^3</div>
+							  <div class="cell"><span style="color:yellow;">Yellow</span></div>
+							  <div class="cell"> </div>
+							  <div class="cell"> </div>
+							  <div class="cell">^8</div>
+							  <div class="cell"><span style="color:orange;">Orange</span></div>
+						   </div>
+						   <div class="row">
+							  <div class="cell">^4</div>
+							  <div class="cell"><span style="color:blue;">Blue</span></div>
+							  <div class="cell"> </div>
+							  <div class="cell"> </div>
+							  <div class="cell">^9</div>
+							  <div class="cell"><span style="color:gray;">Gray</span></div>
+						   </div>
+						</div>
+
+
 						<br/>
 						<button onclick="playerform.restoreOptions();mSetup.Reset(self);" class="button-cancel">Cancel</button>
 						<button onclick="playerform.applyOptions();mSetup.Fix(self);notificationPopup('Saved');" class="button-apply">Save changes</button>

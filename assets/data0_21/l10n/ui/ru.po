@@ -1367,6 +1367,12 @@ msgstr "Красный"
 msgid "Light Blue"
 msgstr "Светло-синий"
 
+msgid "Black"
+msgstr "Чёрный"
+
+msgid "Gray"
+msgstr "Серый"
+
 msgid "Tiny"
 msgstr "Очень маленький"
 
@@ -1378,3 +1384,16 @@ msgstr "Средний"
 
 msgid "Large"
 msgstr "Большой"
+
+msgid "Color Codes"
+msgstr "Цветовые коды"
+
+msgid "Color codes can be used in nick, clan and chat!"
+msgstr "Цветовые коды могут быть использованы в нике, названии клана и чате!"
+
+msgid "Code"
+msgstr "Код"
+
+msgid "Color"
+msgstr "Цвет"
+

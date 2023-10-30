@@ -1,7 +1,7 @@
 <rml>
 <head>
 	<title>options</title>
-	<link type="text/template" href="template.rml" />
+	<link type="text/template" href="options.rml" />
 	<link rel="stylesheet" type="text/css" href="css/options/video.rcss" />
 	<script src="as/video_setup.as"></script>
 	<script>
@@ -80,9 +80,9 @@
 
 	</script>
 </head>
-<body template="porkui" onload="$onVideoLoad" onshow="$onVideoShow" onhide="$onVideoHide">
-	<!-- divide the screen to two vertical contexts -->	
-	<div id="leftside">
+<body template="options" onload="$onVideoLoad" onshow="$onVideoShow" onhide="$onVideoHide">
+
+	<div>
 		
 		<!-- video setup -->
 		<div id="video-options">
@@ -228,17 +228,6 @@
 		</div>
 
 		<!-- ******* main view end   ******* -->
-	</div>
-
-	<div id="sidebar">
-		<div id="sidebar2">
-			<!-- options navigation -->
-			<a href="#" onclick="animOpenMenu('options_player.rml');">Player</a>
-			<a href="#" onclick="animOpenMenu('options_teams.rml');">Teams</a>
-			<a href="#" onclick="animOpenMenu('options_video.rml');">Video</a>
-			<a href="#" onclick="animOpenMenu('options_audio.rml');">Audio</a>
-			<a href="#" onclick="animOpenMenu('options_input.rml');">Input</a>
-		</div>
 	</div>
 
 </body>

@@ -168,6 +168,12 @@
 
 			window.location = 'game_join.rml';
 		}
+
+		void switchToLegacyUi(void)
+        {
+              game.execAppend( "ui_basepath ui/porkui; ui_reload\n" );
+        }
+
 	</script>
 </head>
 <!-- ch : onshow and onhide dont work in template, you have to explicitly define them in each page using template :( -->
@@ -185,6 +191,9 @@
 	<div id="header">
 	</div>
 	
+	<!-- @VeryEvilHuman: Commit hash the build compiled from will be cool here IMO -->
+	<span id="experimental_ui_string">Using experimental UI v0</span>
+
 	<!-- Main navigation bar -->
 	<div id="navi">
 		<a href="index.rml" id="link_profile">Home</a>	
@@ -213,7 +222,9 @@
 		<!-- Console icon -->
 		<img src="/ui/porkui/gfx/console.tga" onclick="$openConsole" id="link_console" />
 	</div>
-	
+		
+	<button id="legacy_ui_switcher" onclick="switchToLegacyUi();">Switch back to Legacy UI</button> 
+
 	<div id="header-bottom" />
 
 </body>

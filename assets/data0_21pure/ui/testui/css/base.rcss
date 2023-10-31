@@ -370,6 +370,13 @@ tabset tabs, #navibar {
 	ninep-src: /ui/porkui/gfx/arrow_right_h;
 }
 
+a#link_game {
+	padding: 8dp 32dp;
+	font-weight: bold;
+	border-bottom-width: 1px;
+	border-bottom-color: #8bb6e3;
+}
+
 #legacy_ui_switcher {
 	position: fixed;
 	width: 200dp;

@@ -373,7 +373,7 @@ tabset tabs, #navibar {
 #legacy_ui_switcher {
 	position: fixed;
 	width: 200dp;
-	bottom: 24dp;
+	top: 12dp;
 	right: 24dp;
 	z-index: 2;
 }

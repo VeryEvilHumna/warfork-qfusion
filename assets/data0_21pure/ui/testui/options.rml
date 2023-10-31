@@ -18,6 +18,8 @@
 				<a href="#" onclick="animOpenMenu('options_video.rml');">Video</a>
 				<a href="#" onclick="animOpenMenu('options_audio.rml');">Audio</a>
 				<a href="#" onclick="animOpenMenu('options_input.rml');">Input</a>
+				<hr class="w100p nicehr" />
+				<a href="#" onclick="animOpenMenu('options_troubleshoot.rml');">Troubleshooting</a>
 			</div>
 		</div>
 

@@ -191,8 +191,7 @@
 	<div id="header">
 	</div>
 	
-	<!-- @VeryEvilHuman: Commit hash the build compiled from will be cool here IMO -->
-	<span id="experimental_ui_string">Using experimental UI v0</span>
+	<span id="experimental_ui_string">Using experimental UI v0.1</span>
 
 	<!-- Main navigation bar -->
 	<div id="navi">

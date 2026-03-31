@@ -70,6 +70,7 @@ UI_Main::UI_Main( int vidWidth, int vidHeight, float pixelRatio,
 	ui_cursor = trap::Cvar_Get( "ui_cursor", "cursors/default.rml", CVAR_DEVELOPER );
 	ui_developer = trap::Cvar_Get( "developer", "0", 0 );
 	ui_preload = trap::Cvar_Get( "ui_preload", "1", CVAR_ARCHIVE );
+	ui_use_os_cursor = trap::Cvar_Get( "ui_use_os_cursor", "1", CVAR_ARCHIVE );
 
 	// make sure the UI isn't too small
 	int minHeight = 600.0f * pixelRatio;
@@ -286,6 +287,9 @@ void UI_Main::reloadUI( void )
 void UI_Main::loadCursor( void )
 {
 	assert( rocketModule != NULL );
+
+	if( ui_use_os_cursor->integer )
+		return;
 
 	// setup cursor
 	std::string basecursor( ui_basepath->string );

@@ -214,6 +214,8 @@ void CL_MouseMove( usercmd_t *cmd, int mx, int my )
 
 	if( cls.key_dest == key_menu )
 	{
+		if( Cvar_Value( "ui_use_os_cursor" ) )
+			return;
 		CL_UIModule_MouseMove( mx, my );
 		return;
 	}

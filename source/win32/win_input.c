@@ -108,9 +108,11 @@ int mouse_buttons;
 int mouse_wheel_type;
 
 static int mouse_oldbuttonstate;
-static POINT current_pos;
 static int mx, my;
+static POINT current_pos;
+
 static bool	mouseactive;    // false when not focus app
+static bool	os_cursor_menu; // true when using OS cursor in menu mode
 static bool	restore_spi;
 static bool	mouseinitialized;
 static int originalmouseparms[3], newmouseparms[3] = { 0, 0, 0 };
@@ -196,7 +198,16 @@ static void IN_ActivateMouse( void )
 	if( mouseactive )
 		return;
 
+	os_cursor_menu = ( Cvar_Value( "ui_use_os_cursor" ) && cls.key_dest == key_menu );
 	mouseactive = true;
+
+	if( os_cursor_menu )
+	{
+		while( ShowCursor( TRUE ) < 0 ) ;
+		ClipCursor( NULL );
+		ReleaseCapture();
+		return;
+	}
 
 	if( dinput_initialized )
 	{
@@ -930,7 +941,16 @@ void IN_MouseMove( usercmd_t *cmd )
 			SetCursorPos( window_center_x, window_center_y );
 	}
 
-	CL_MouseMove( cmd, mx, my );
+	if( os_cursor_menu )
+	{
+		POINT pt;
+		if( GetCursorPos( &pt ) && ScreenToClient( cl_hwnd, &pt ) )
+			CL_MouseSet( pt.x, pt.y, true );
+	}
+	else
+	{
+		CL_MouseMove( cmd, mx, my );
+	}
 }
 
 /*
@@ -1031,7 +1051,15 @@ void IN_Frame( void )
 	if( !in_mouse || !in_appactive )
 	{
 		IN_DeactivateMouse();
+		os_cursor_menu = false;
 		return;
+	}
+
+	bool new_os_cursor = ( Cvar_Value( "ui_use_os_cursor" ) && cls.key_dest == key_menu );
+	if( new_os_cursor != os_cursor_menu )
+	{
+		mouseactive = false;
+		IN_DeactivateMouse();
 	}
 
 	IN_ActivateMouse();

@@ -17,6 +17,7 @@ static bool input_focus = false;
 static bool mouse_relative = false;
 
 static int mx = 0, my = 0;
+static int mouse_absx = 0, mouse_absy = 0;
 
 static bool bugged_rawXevents = false;
 
@@ -61,8 +62,13 @@ static void mouse_motion_event( SDL_MouseMotionEvent *event )
 		last_yrel = event->yrel;
 	}
 
-	mx += event->xrel;
-	my += event->yrel;
+	if( mouse_relative ) {
+		mx += event->xrel;
+		my += event->yrel;
+	} else {
+		mouse_absx = event->x;
+		mouse_absy = event->y;
+	}
 }
 
 /**
@@ -426,8 +432,12 @@ void IN_MouseMove( usercmd_t *cmd )
 			}
 		}
 
-		if( mx || my ) {
-			CL_MouseMove( cmd, mx, my );
+		if( mouse_relative ) {
+			if( mx || my ) {
+				CL_MouseMove( cmd, mx, my );
+			}
+		} else {
+			CL_MouseSet( mouse_absx, mouse_absy, true );
 		}
 	}
 
@@ -504,8 +514,13 @@ void IN_Restart( void )
  */
 void IN_Frame()
 {
+	bool os_cursor_menu = false;
+
 	if( !input_inited )
 		return;
+
+	if( Cvar_Value( "ui_use_os_cursor" ) && cls.key_dest == key_menu && input_focus )
+		os_cursor_menu = true;
 
 	if( !input_focus || ( !Cvar_Value( "vid_fullscreen" ) && cls.key_dest == key_console && !in_grabinconsole->integer ) ) {
 		if( mouse_active ) {
@@ -518,6 +533,16 @@ void IN_Frame()
 			SDL_ShowCursor( SDL_ENABLE );
 		}
 		mouse_active = false;
+		input_active = true;
+	} else if( os_cursor_menu ) {
+		if( mouse_active && mouse_relative ) {
+			mouse_relative = !(SDL_SetRelativeMouseMode( SDL_FALSE ) == 0);
+			if( !mouse_relative ) {
+				IN_SetMouseScalingEnabled( true );
+			}
+		}
+		SDL_ShowCursor( SDL_ENABLE );
+		mouse_active = true;
 		input_active = true;
 	} else {
 		if( !mouse_active ) {

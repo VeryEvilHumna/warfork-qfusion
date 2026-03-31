@@ -244,6 +244,7 @@ private:
 	cvar_t *ui_cursor;
 	cvar_t *ui_developer;
 	cvar_t *ui_preload;
+	cvar_t *ui_use_os_cursor;
 };
 
 }

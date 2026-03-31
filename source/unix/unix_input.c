@@ -665,6 +665,17 @@ void IN_MouseMove( usercmd_t *cmd )
 		CL_MouseMove( cmd, mx, my );
 		mx = my = 0;
 	}
+	else if( Cvar_Value( "ui_use_os_cursor" ) && cls.key_dest == key_menu && focus )
+	{
+		Window root, child;
+		int root_x, root_y, win_x, win_y;
+		unsigned int mask;
+		if( XQueryPointer( x11display.dpy, x11display.win, &root, &child,
+			&root_x, &root_y, &win_x, &win_y, &mask ) )
+		{
+			CL_MouseSet( win_x, win_y, true );
+		}
+	}
 }
 
 static void IN_Activate( bool active )
@@ -755,7 +766,11 @@ void IN_Frame( void )
 	HandleEvents();
 
 	if( focus ) {
-		if( !Cvar_Value( "vid_fullscreen" ) && ( ( cls.key_dest == key_console ) && !in_grabinconsole->integer ) )
+		if( Cvar_Value( "ui_use_os_cursor" ) && cls.key_dest == key_menu )
+		{
+			m_active = false;
+		}
+		else if( !Cvar_Value( "vid_fullscreen" ) && ( ( cls.key_dest == key_console ) && !in_grabinconsole->integer ) )
 		{
 			m_active = false;
 		}

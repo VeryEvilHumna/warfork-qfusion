@@ -203,6 +203,18 @@ static void IN_ActivateMouse( void )
 
 	if( os_cursor_menu )
 	{
+		if( dinput_initialized && g_pMouse )
+		{
+			if( dinput_acquired )
+			{
+				IDirectInputDevice_Unacquire( g_pMouse );
+				dinput_acquired = false;
+			}
+			if( cl_hwnd )
+				IDirectInputDevice_SetCooperativeLevel( g_pMouse, cl_hwnd, DISCL_NONEXCLUSIVE | DISCL_FOREGROUND );
+		}
+		if( rawinput_initialized )
+			IN_RawInput_DeRegister();
 		while( ShowCursor( TRUE ) < 0 ) ;
 		ClipCursor( NULL );
 		ReleaseCapture();

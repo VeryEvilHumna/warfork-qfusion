@@ -62,7 +62,15 @@ input.text, input.password {
 
 .short { width: 52dp; }
 
-input.text:hover, input.text:focus, input.password:hover, input.password:focus { background-color: #3f3c49; }
+input.text:hover,
+input.password:hover {
+	background-color: #2a2a30;
+}
+
+input.text:focus, 
+input.password:focus { 
+	background-color: #3f3c49; 
+}
 
 /* Tabsets */
 tabset tab {
@@ -134,7 +142,11 @@ input.checkbox {
 	height: 1.5em;
 }
 
-input.checkbox:hover, input.checkbox:focus {
+input.checkbox:hover {
+	background-color: #2a2a30;
+}
+
+input.checkbox:focus {
 	background-color: #3f3c49;
 }
 
@@ -174,7 +186,7 @@ select, dataselect, keyselect {
 	width: 30%;
 	display: inline-block;
 	text-align: left;
-	padding: 2dp 4dp;
+	padding: 0;
 	margin-bottom: 8dp;
 }
 
@@ -182,8 +194,25 @@ select, dataselect, selectvalue {
 	height: 1.8em;
 }
 
-select:hover, dataselect:hover, keyselect:hover,/* input.range slidertrack:hover,*/
-select:focus, dataselect:focus, keyselect:focus/*, input.range slidertrack:focus*/ {
+select selectvalue, dataselect selectvalue {
+	padding: 2dp 4dp;
+	padding-right: 24dp;
+	overflow: hidden;
+	color: #fff;
+}
+
+select selectarrow, dataselect selectarrow {
+	width: 24dp;
+	height: 24dp;
+	icon-decorator: image;
+	icon-image: /ui/testui/gfx/controls/scrollbar_arrow 0 1 1 0;
+}
+
+select:hover, dataselect:hover {
+	background-color: #2a2a30;
+}
+
+select:focus, dataselect:focus {
 	background-color: #3f3c49;
 }
 
@@ -191,12 +220,22 @@ select selectbox, dataselect selectbox {
 	max-height: 10em;
 	padding: 4dp;
 	padding-left: 8dp;
-	overflow-y: auto;	
-	background-color: #141219;	
+	overflow-y: auto;
+	background-color: #141219;
 }
 
 /* Dropdowns row hover */
-select selectbox option:hover, dataselect selectbox option:hover, dataselect selectbox option:focus { color: #eb8c8a; }
+select selectbox option, dataselect selectbox option {
+	min-height: 1.8em;
+	padding-left: 4dp;
+	color: #fff;
+}
+
+select selectbox option:hover, dataselect selectbox option:hover,
+dataselect selectbox option:focus {
+	color: #eb8c8a;
+	background-color: #3f3c49;
+}
 
 /* Range slider */
 input.range slidertrack {
